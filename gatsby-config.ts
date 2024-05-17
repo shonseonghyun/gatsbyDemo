@@ -2,7 +2,7 @@ import type { GatsbyConfig } from "gatsby"
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title:'DevStickers',
+    title:'DevSticker',
     siteUrl: `https://www.yourdomain.tld`,
     description:"Buy the best stickers"
   },
@@ -11,6 +11,7 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
+    `gatsby-plugin-mdx`,
     {
       resolve:`gatsby-source-filesystem`,
       options:{
