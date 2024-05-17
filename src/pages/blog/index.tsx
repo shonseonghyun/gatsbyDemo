@@ -7,8 +7,7 @@ const Blog = ({data}:PageProps<Queries.BlogPostsQuery>) => {
     
     return (
     <Layout title="Blog">
-        <p>Hello welcom to my blog!</p>   
-        <ul>
+        <section className='grid'>
             {data.allMdx.nodes.map((file,index)=>(
                 <article key={index}>
                     <Link to={`/blog/${file.frontmatter?.slug}`}>
@@ -16,11 +15,10 @@ const Blog = ({data}:PageProps<Queries.BlogPostsQuery>) => {
                     </Link>
                     <h3>{file.frontmatter?.author}</h3>
                     <h3>{file.frontmatter?.date}</h3>
-                    <hr />
                     <p>{file.excerpt}</p>
                 </article>
             ))}
-        </ul>    
+        </section>    
     </Layout>
     );
 };
