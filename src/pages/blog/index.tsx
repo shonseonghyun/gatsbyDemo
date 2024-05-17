@@ -4,22 +4,24 @@ import Seo from '../../components/Seo';
 import { Link, PageProps, graphql } from 'gatsby';
 
 const Blog = ({data}:PageProps<Queries.BlogPostsQuery>) => {
+    console.log(data);
     
     return (
     <Layout title="Blog">
-        <section className='grid'>
+        <p>Hello welcom to my blog!</p>   
+        <ul>
             {data.allMdx.nodes.map((file,index)=>(
                 <article key={index}>
                     <Link to={`/blog/${file.frontmatter?.slug}`}>
                         <h3>{file.frontmatter?.title}</h3>
-                        <h3>{file.frontmatter?.slug}</h3>
                     </Link>
                     <h3>{file.frontmatter?.author}</h3>
                     <h3>{file.frontmatter?.date}</h3>
+                    <hr />
                     <p>{file.excerpt}</p>
                 </article>
             ))}
-        </section>    
+        </ul>    
     </Layout>
     );
 };
